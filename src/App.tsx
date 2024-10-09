@@ -10,6 +10,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Route, Routes } from "react-router";
+import ABOBA from "./components/Aboba";
+import { Link } from "react-router-dom";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -48,6 +51,15 @@ function App() {
           <p>Card Footer</p>
         </CardFooter>
       </Card>
+
+      <ul>
+        <li>
+          <Link to="/Aboba">Aboba</Link>
+        </li>
+      </ul>
+      <Routes>
+        <Route path="/" Component={ABOBA} />
+      </Routes>
     </>
   );
 }
