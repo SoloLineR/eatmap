@@ -10,10 +10,10 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
-        "my-red": "hsl(var(--warning))",
+        "my-red": "hsl(var(--my-red))",
         "my-less-red": "hsl(var(--my-less-red))",
         "my-yellow": "hsl(var(--my-yellow))",
-        "my-dark-cream": "hsl(var(--warning))",
+        "my-dark-cream": "hsl(var(--my-dark-cream))",
         "my-cream": "hsl(var(--my-cream))",
 
         background: "hsl(var(--background))",
