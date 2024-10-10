@@ -247,8 +247,6 @@ export default function Card_list({
   sortType: string;
   SortTypeVibe: string;
 }) {
-  console.log(sortType, SortTypeVibe);
-
   const sorting = (places: place[], sortType: string, sortTypeVibe: string) => {
     if (sortType === "" && sortTypeVibe === "") {
       return places;
@@ -275,8 +273,6 @@ export default function Card_list({
     if (sortType === "дистанции") {
       sorted.sort((a, b) => a.dist - b.dist);
     }
-
-    console.log(sorted);
 
     return sorted;
   };

@@ -11,6 +11,15 @@ import {
 import { Link } from "react-router-dom";
 
 export function HambugerMenu() {
+  function handleLogin() {
+    localStorage.setItem("login", "true");
+    window.location.reload();
+  }
+  function handleLogout() {
+    localStorage.removeItem("login");
+    window.location.reload();
+  }
+  const isLOGINTO = localStorage.getItem("login");
   return (
     <div className=" md:hidden flex items-center">
       <DropdownMenu>
@@ -62,7 +71,31 @@ export function HambugerMenu() {
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator className="bg-my-red" />
-          <DropdownMenuGroup>
+
+          {isLOGINTO ? (
+            <DropdownMenuGroup>
+              <DropdownMenuItem>
+                {" "}
+                <Link className="text-2xl" to="/profile">
+                  Кабинет
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-2xl" onClick={handleLogout}>
+                Выйти
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
+          ) : (
+            <DropdownMenuGroup>
+              <DropdownMenuItem className="text-2xl" onClick={handleLogin}>
+                Войти
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-2xl" onClick={handleLogin}>
+                Регистрация
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
+          )}
+
+          {/* <DropdownMenuGroup>
             <DropdownMenuItem>
               {" "}
               <Link className="text-2xl" to="/search">
@@ -75,7 +108,7 @@ export function HambugerMenu() {
                 Регистрация
               </Link>
             </DropdownMenuItem>
-          </DropdownMenuGroup>
+          </DropdownMenuGroup> */}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

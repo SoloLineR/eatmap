@@ -10,6 +10,12 @@ import {
 import { Button } from "./ui/button";
 
 export default function Card_item({ place }: { place: place }) {
+  function handleBooked(name: string) {
+    const booked = JSON.parse(localStorage.getItem("booked")!) || [];
+
+    booked.push(name);
+    localStorage.setItem("booked", JSON.stringify(booked));
+  }
   return (
     <li key={place.id}>
       <Card>
@@ -61,7 +67,9 @@ export default function Card_item({ place }: { place: place }) {
             <span className="font-bold text-my-red">Рейтинг: </span>{" "}
             {place.rating}
           </p>
-          <Button>Забронировать</Button>
+          <Button onClick={() => handleBooked(place.name)}>
+            Забронировать
+          </Button>
         </CardFooter>
       </Card>
     </li>
