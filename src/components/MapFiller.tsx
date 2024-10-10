@@ -3,7 +3,7 @@ export default function MapFiller() {
     <div className="">
       <img
         className=" max-w-[700px] w-full h-auto object-cover "
-        src="../../public/MapFiler.png"
+        src="MapFiler.png"
         alt=""
       />
     </div>

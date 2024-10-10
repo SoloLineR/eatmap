@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import Autoplay from "embla-carousel-autoplay";
 
 import {
   Carousel,
@@ -11,10 +12,20 @@ import {
 const mock = [
   "https://utfs.io/f/17qrxp3X86jafgPPlsCpU0nvX3quO1fmzHAhL4RaIQMtWB7p",
   "https://utfs.io/f/17qrxp3X86ja7DJCPlrsQS2ObAyjmVHWqL6DgcniB1KrNCho",
+  "https://utfs.io/f/17qrxp3X86jajeBCeyXw6o5HrlZXva4qFz3VpeRYKAMgxcTd",
+  "https://utfs.io/f/17qrxp3X86jaN9BwxwDSvf98s3ODG5BRCqm7clgHpnFwoKzh",
+  "https://utfs.io/f/17qrxp3X86jaBrvl5zkuGnpok1OZRdhNSrzX39BAWaqbxQlj",
 ];
 export function Gallery() {
   return (
-    <Carousel className="w-full max-w-[700px]">
+    <Carousel
+      plugins={[
+        Autoplay({
+          delay: 3000,
+        }),
+      ]}
+      className="w-full max-w-[700px]"
+    >
       <CarouselContent>
         {mock.map((img, index) => (
           <CarouselItem key={index}>
