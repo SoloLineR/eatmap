@@ -8,6 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Link } from "react-router-dom";
 
 export function HambugerMenu() {
   return (
@@ -43,12 +44,16 @@ export function HambugerMenu() {
             </svg>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-screen h-screen">
+        <DropdownMenuContent className="w-screen">
           <DropdownMenuLabel>EatMap</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuItem>Главная</DropdownMenuItem>
-            <DropdownMenuItem>Поиск</DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/">Главная</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/search">Поиск</Link>
+            </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
