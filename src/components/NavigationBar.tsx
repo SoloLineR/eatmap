@@ -17,7 +17,7 @@ export default function NavigationBar() {
     <nav className="py-4 ">
       <div className=" mx-auto container   flex justify-between items-center">
         <Link to="/">
-          <img className=" max-w-28" src="/logoeatmap.png" alt="" />
+          <img className=" max-w-28" src="logo.png" alt="" />
         </Link>
 
         <ul className=" hidden max-w-[500px] w-full justify-around md:flex   ">

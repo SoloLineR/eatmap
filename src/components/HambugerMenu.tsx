@@ -59,12 +59,12 @@ export function HambugerMenu() {
           </DropdownMenuLabel>
           <DropdownMenuSeparator className="bg-my-red" />
           <DropdownMenuGroup>
-            <DropdownMenuItem asChild>
+            <DropdownMenuItem className="text-2xl" asChild>
               <Link className="text-2xl" to="/">
                 Главная
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
+            <DropdownMenuItem className="text-2xl" asChild>
               <Link className="text-2xl" to="/search">
                 Поиск
               </Link>
@@ -74,9 +74,9 @@ export function HambugerMenu() {
 
           {isLOGINTO ? (
             <DropdownMenuGroup>
-              <DropdownMenuItem asChild>
+              <DropdownMenuItem className="text-2xl" asChild>
                 <Link className="text-2xl" to="/profile">
-                  Кабинет
+                  Профиль
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem
