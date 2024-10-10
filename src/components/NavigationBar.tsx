@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { HambugerMenu } from "./HambugerMenu";
 
 export default function NavigationBar() {
   return (
@@ -8,7 +9,7 @@ export default function NavigationBar() {
           <img className=" max-w-28" src="/logoeatmap.png" alt="" />
         </Link>
 
-        <ul className="flex  max-w-[500px] w-full justify-around">
+        <ul className=" hidden max-w-[500px] w-full justify-around md:flex   ">
           <li>
             <Link
               className=" text-my-cream bg-primary p-3 hover:bg-my-less-red rounded-lg "
@@ -20,13 +21,13 @@ export default function NavigationBar() {
           <li>
             <Link
               className=" text-my-cream bg-primary p-3 hover:bg-my-less-red rounded-lg "
-              to="/"
+              to="/search"
             >
               Поиск
             </Link>
           </li>
         </ul>
-        <ul className="flex   gap-10 justify-around">
+        <ul className="hidden   gap-10 justify-around  md:flex ">
           <li>
             <Link
               className=" text-my-cream bg-primary p-3 hover:bg-my-less-red rounded-lg "
@@ -44,6 +45,7 @@ export default function NavigationBar() {
             </Link>
           </li>
         </ul>
+        <HambugerMenu />
       </div>
     </nav>
   );
