@@ -44,21 +44,37 @@ export function HambugerMenu() {
             </svg>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-screen">
-          <DropdownMenuLabel>EatMap</DropdownMenuLabel>
-          <DropdownMenuSeparator />
+        <DropdownMenuContent className="w-screen bg-my-cream">
+          <DropdownMenuLabel className="text-3xl text-my-red">
+            EatMap
+          </DropdownMenuLabel>
+          <DropdownMenuSeparator className="bg-my-red" />
           <DropdownMenuGroup>
             <DropdownMenuItem asChild>
-              <Link to="/">Главная</Link>
+              <Link className="text-2xl" to="/">
+                Главная
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <Link to="/search">Поиск</Link>
+              <Link className="text-2xl" to="/search">
+                Поиск
+              </Link>
             </DropdownMenuItem>
           </DropdownMenuGroup>
-          <DropdownMenuSeparator />
+          <DropdownMenuSeparator className="bg-my-red" />
           <DropdownMenuGroup>
-            <DropdownMenuItem>Войти</DropdownMenuItem>
-            <DropdownMenuItem>Регистрация</DropdownMenuItem>
+            <DropdownMenuItem>
+              {" "}
+              <Link className="text-2xl" to="/search">
+                Войти
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              {" "}
+              <Link className="text-2xl" to="/search">
+                Регистрация
+              </Link>
+            </DropdownMenuItem>
           </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>

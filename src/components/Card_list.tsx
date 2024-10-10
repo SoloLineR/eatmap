@@ -1,21 +1,4 @@
 import Card_item from "./Card_item";
-const moods = [
-  "уютная",
-  "романтическая",
-  "веселая",
-  "неформальная",
-  "спокойная",
-  "экзотическая",
-  "гостеприимная",
-  "традиционная",
-  "сладкая",
-  "тихая",
-  "дружелюбная",
-  "разнообразная",
-  "семейная",
-  "классическая",
-  "освежающая",
-];
 
 export type place = {
   id: number;
@@ -257,11 +240,52 @@ const places: place[] = [
     foodType: "Напитки",
   },
 ];
-export default function Card_list() {
+export default function Card_list({
+  sortType,
+  SortTypeVibe,
+}: {
+  sortType: string;
+  SortTypeVibe: string;
+}) {
+  console.log(sortType, SortTypeVibe);
+
+  const sorting = (places: place[], sortType: string, sortTypeVibe: string) => {
+    if (sortType === "" && sortTypeVibe === "") {
+      return places;
+    }
+
+    // Фильтруем места по настроению
+    let sorted = places;
+    if (sortTypeVibe !== "любая" && sortTypeVibe !== "") {
+      sorted = sorted.filter((place) => place.mood === sortTypeVibe);
+    } else {
+      sorted = places;
+    }
+
+    // Сортируем места по выбранному критерию
+    if (sortType === "свободным местам") {
+      sorted.sort((a, b) => b.emptyTables - a.emptyTables);
+    }
+    if (sortType === "рейтингу") {
+      sorted.sort((a, b) => b.rating - a.rating);
+    }
+    if (sortType === "популярности") {
+      sorted.sort((a, b) => b.popularityRating - a.popularityRating);
+    }
+    if (sortType === "дистанции") {
+      sorted.sort((a, b) => a.dist - b.dist);
+    }
+
+    console.log(sorted);
+
+    return sorted;
+  };
+
+  const sorted = sorting(places, sortType, SortTypeVibe);
   return (
     <div>
       <ul className="grid grid-cols-1 gap-6   lg:grid-cols-2">
-        {places.map((item) => (
+        {sorted.map((item) => (
           <Card_item key={item.id} place={item} />
         ))}
       </ul>
