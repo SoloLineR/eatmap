@@ -74,13 +74,15 @@ export function HambugerMenu() {
 
           {isLOGINTO ? (
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                {" "}
+              <DropdownMenuItem asChild>
                 <Link className="text-2xl" to="/profile">
                   Кабинет
                 </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem className="text-2xl" onClick={handleLogout}>
+              <DropdownMenuItem
+                className="text-2xl w-full"
+                onClick={handleLogout}
+              >
                 Выйти
               </DropdownMenuItem>
             </DropdownMenuGroup>

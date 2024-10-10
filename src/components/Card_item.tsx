@@ -8,14 +8,25 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "./ui/button";
+import { toast } from "sonner";
 
 export default function Card_item({ place }: { place: place }) {
   function handleBooked(name: string) {
     const booked = JSON.parse(localStorage.getItem("booked")!) || [];
 
+    if (booked.includes(name)) {
+      toast("Вы уже забронировали этот столик");
+      return;
+    }
+
     booked.push(name);
+
     localStorage.setItem("booked", JSON.stringify(booked));
+
+    toast("Ваш столик забронирован");
   }
+
+  const isLogin = localStorage.getItem("login");
   return (
     <li key={place.id}>
       <Card>
@@ -67,9 +78,14 @@ export default function Card_item({ place }: { place: place }) {
             <span className="font-bold text-my-red">Рейтинг: </span>{" "}
             {place.rating}
           </p>
-          <Button onClick={() => handleBooked(place.name)}>
-            Забронировать
-          </Button>
+
+          {isLogin === "true" ? (
+            <Button onClick={() => handleBooked(place.name)}>
+              Забронировать
+            </Button>
+          ) : (
+            <p className="font-bold">Войдите чтобы забронировать</p>
+          )}
         </CardFooter>
       </Card>
     </li>
