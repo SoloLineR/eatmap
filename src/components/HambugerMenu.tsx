@@ -69,6 +69,11 @@ export function HambugerMenu() {
                 Поиск
               </Link>
             </DropdownMenuItem>
+            <DropdownMenuItem className="text-2xl" asChild>
+              <Link className="text-2xl" to="/discount">
+                Акция
+              </Link>
+            </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator className="bg-my-red" />
 

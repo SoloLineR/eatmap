@@ -37,6 +37,14 @@ export default function NavigationBar() {
               Поиск
             </Link>
           </li>
+          <li>
+            <Link
+              className=" text-my-cream bg-primary p-3 hover:bg-my-less-red rounded-lg "
+              to="/discount"
+            >
+              Акция
+            </Link>
+          </li>
         </ul>
         <ul className="hidden   gap-10 justify-around  md:flex ">
           {isLOGINTO ? (
